@@ -143,10 +143,10 @@ function render(guestbooVo){
 	 
 	str += '<table class="guestRead">';
 	str += '	<colgroup>';
-	str += ' 	<col style="width: 10%;">';
-	str += ' 	<col style="width: 40%;">';
-	str += '	<col style="width: 40%;">';
-	str += '	<col style="width: 10%;">';
+	str += ' 		<col style="width: 10%;">';
+	str += ' 		<col style="width: 40%;">';
+	str += '		<col style="width: 40%;">';
+	str += '		<col style="width: 10%;">';
 	str += '	</colgroup>';
 	str += '	<tr>';
 	str += '		<td>'+ guestbookVo.no +'</td>';
