@@ -39,20 +39,21 @@ public class GuestbookService {
 		return count;
 	}
 
-	// 방명록 등록 ajax
+	
+	//ajax 방명록 저장
 	public GuestbookVo exeAddandGuest(GuestbookVo guestbookVo) {
 		System.out.println("GuestService.exeAddandGuest()");
-
-		// 등록
-		int count = guestbookDao.insertSelectKey(guestbookVo);
-
-		// no 의 데이터 가져오기
-		// no값 확인
-		int no = guestbookVo.getNo();
-		// no데이터 가져오기
-
-		GuestbookVo gVo = guestbookDao.guestbookSelectOne(no);
+		System.out.println(guestbookVo);
+	    
+		//저장
+		System.out.println("전"+guestbookVo);//no 없음
+		guestbookDao.insertSelectkey(guestbookVo);
+		System.out.println("후"+guestbookVo);//no 있음
+		
+		//1명 데이터 가녀오기 
+		GuestbookVo gVo= guestbookDao.guestbookSelectOne(guestbookVo.getNo());
 		return gVo;
+	  
+		
 	}
-
 }

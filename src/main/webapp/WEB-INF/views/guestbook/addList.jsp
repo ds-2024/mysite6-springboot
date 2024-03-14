@@ -17,7 +17,7 @@
 		<!-- header+nav -->
 		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 		<!-- //header+nav -->
-	
+
 		<div id="container" class="clearfix">
 			<div id="aside">
 				<h2>방명록</h2>
@@ -29,7 +29,7 @@
 			<!-- //aside -->
 
 			<div id="content">
-				
+
 				<div id="content-head" class="clearfix">
 					<h3>일반방명록</h3>
 					<div id="location">
@@ -53,10 +53,12 @@
 							</colgroup>
 							<tbody>
 								<tr>
-									<th><label class="form-text" for="input-uname">이름</label></td>
+									<th><label class="form-text" for="input-uname">이름</label>
+									</td>
 									<td><input id="input-uname" type="text" name="name"></td>
-									<th><label class="form-text" for="input-pass">패스워드</label></td>
-									<td><input id="input-pass"type="password" name="password"></td>
+									<th><label class="form-text" for="input-pass">패스워드</label>
+									</td>
+									<td><input id="input-pass" type="password" name="password"></td>
 								</tr>
 								<tr>
 									<td colspan="4"><textarea name="content" cols="72" rows="5"></textarea></td>
@@ -65,12 +67,12 @@
 									<td colspan="4" class="text-center"><button type="submit">등록</button></td>
 								</tr>
 							</tbody>
-							
+
 						</table>
 						<!-- //guestWrite -->
-						
-					</form>	
-					
+
+					</form>
+
 					<c:forEach items="${guestbookList}" var="guestbookVo">
 						<table class="guestRead">
 							<colgroup>
@@ -91,10 +93,10 @@
 						</table>
 						<!-- //guestRead -->
 					</c:forEach>
-					
+
 				</div>
 				<!-- //guestbook -->
-			
+
 			</div>
 			<!-- //content  -->
 		</div>
@@ -103,7 +105,7 @@
 		<!-- //footer -->
 		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 		<!-- //footer -->
-		
+
 	</div>
 	<!-- //wrap -->
 

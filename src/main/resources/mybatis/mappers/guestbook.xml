@@ -25,6 +25,10 @@
 	</insert>
 	
 	
+	
+
+	
+	
 	<!-- 삭제 -->
 	<insert id="delete" parameterType="com.javaex.vo.GuestbookVo">
 		<![CDATA[ 
