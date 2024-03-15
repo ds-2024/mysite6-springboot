@@ -36,6 +36,7 @@ public class GuestbookDao {
 		System.out.println("GuestbookDao.guestbookDelete()");
 		
 		int count = sqlSession.delete("guestbook.delete", guestbookVo);
+		System.out.println(count);
 		return count;
 	}
 	

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,8 +14,25 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.javaex.service.GuestbookService;
 import com.javaex.vo.GuestbookVo;
 
+
 @Controller
 public class ApiGuestbookController {
+	
+
+	//삭제
+	@ResponseBody
+	@RequestMapping(value="/api/guestbooks/{no}", method = RequestMethod.DELETE) //주의 {}로 표기해야함. 안그러면 문자로 인식.
+	public int remove(@PathVariable("no") int no, @ModelAttribute GuestbookVo guestbookVo) {
+		
+		System.out.println("ApiGuestbookController.remove()");
+		System.out.println(no);
+		System.out.println(guestbookVo);
+		//guestbookVo.setNo(no);
+		int count = guestbookService.exeRemove(guestbookVo);
+		System.out.println(count);
+		return count;
+	}
+
 	
 	//리스트
 	@Autowired
@@ -33,7 +52,7 @@ public class ApiGuestbookController {
 	//등록(Post) //낱개로 받을거면 param 2개이상이면 modelAttribute
 	@ResponseBody // 이 어노테이션이 있어야 jason이 받아서 ok 사인을 콘솔에 보여줌.
 	@RequestMapping(value= "/api/guestbooks", method = RequestMethod.POST) 
-	public GuestbookVo add(@ModelAttribute GuestbookVo guestbookVo) {
+	public GuestbookVo add(@RequestBody GuestbookVo guestbookVo) { //ResponseBody vs RequestBody
 		System.out.println("ApiGuestbookController.add()");
 		System.out.println(guestbookVo);
 		

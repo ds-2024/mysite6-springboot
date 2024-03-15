@@ -18,7 +18,8 @@ public class GuestbookController {
 
 	@Autowired
 	private GuestbookService guestbookService;
-
+	
+	
 	// 등록폼+리스트
 	@RequestMapping(value = "/addlist", method = { RequestMethod.GET, RequestMethod.POST })
 	public String addList(Model model) {
@@ -40,6 +41,16 @@ public class GuestbookController {
 		return "redirect:/guestbook/addlist";
 	}
 	
+	// 삭제
+		@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
+		public String delete(@ModelAttribute GuestbookVo guestVo) {
+			System.out.println("GuestbookController.delete()");
+
+			guestbookService.exeRemove(guestVo);
+			
+			return "redirect:/guestbook/addlist";
+		}
+
 	
 	// 삭제폼
 	@RequestMapping(value = "/deleteform", method = { RequestMethod.GET, RequestMethod.POST })
@@ -49,16 +60,7 @@ public class GuestbookController {
 		return "guestbook/deleteForm";
 	}
 	
-	// 삭제
-	@RequestMapping(value = "/delete", method = { RequestMethod.GET, RequestMethod.POST })
-	public String delete(@ModelAttribute GuestbookVo guestVo) {
-		System.out.println("GuestbookController.delete()");
-
-		guestbookService.exeRemove(guestVo);
-		
-		return "redirect:/guestbook/addlist";
-	}
-
+	
 	
 	
 	//////////////////////////////////////////////////////////////

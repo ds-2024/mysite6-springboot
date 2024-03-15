@@ -39,7 +39,7 @@
 	</insert>
 	
 	
-	<!-- 번호받고 저장하기 ajax-->
+	<!-- 저장하고 불러오기 ajax-->
 	<insert id="insertSelectKey" parameterType="com.javaex.vo.GuestbookVo">
 		<![CDATA[	
 	    	insert into guestbook
