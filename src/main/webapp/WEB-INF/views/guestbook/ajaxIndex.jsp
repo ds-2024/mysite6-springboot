@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		
 		
 	//모달창에 삭제버튼을 클릭했을때 (진짜 삭제)
-	let btnDelete = document.querySelector(".btnDelete");
+	let btnDelete = +document.querySelector(".btnDelete");
 	btnDelete.addEventListener("click", deleteAndRemove);
 	
 	});//document.addEventListener
