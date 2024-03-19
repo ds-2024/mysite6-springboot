@@ -59,7 +59,7 @@
                      <!-- 이미지반복영역 -->
                      <li>
                         <div class="view">
-                           <img class="imgItem" src="mysite6/listupload/.jpg">
+                           <img class="imgItem" src="mysite6/gallery/upload/{saveName}">
                            <div class="imgWriter">
                               작성자: <strong>유재석</strong>
                            </div>
@@ -78,7 +78,7 @@
       </div>
       <!-- //container  -->
 
-
+	
       <c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
       <!-- //footer -->
 

@@ -15,7 +15,7 @@ public class GalleryVo {
 	}
 
 	public GalleryVo(String filePath, String orgName, String saveName, long fileSize) {
-		super();
+		
 		this.filePath = filePath;
 		this.orgName = orgName;
 		this.saveName = saveName;
@@ -24,7 +24,7 @@ public class GalleryVo {
 
 	public GalleryVo(int no, int user_no, String content, String filePath, String orgName, String saveName,
 			long fileSize) {
-		super();
+		
 		this.no = no;
 		this.user_no = user_no;
 		this.content = content;

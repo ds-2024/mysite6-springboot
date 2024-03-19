@@ -4,15 +4,22 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.javaex.dao.GalleryDao;
 import com.javaex.vo.GalleryVo;
+import com.javaex.vo.TboardVo;
 
 @Service
 public class GalleryService {
+	
+	@Autowired
+	private GalleryDao galleryDao;
 
 	public String exeupload(MultipartFile file) {
 		System.out.println("GalleryService.exeupload()");
@@ -49,8 +56,10 @@ public class GalleryService {
 		System.out.println(galleryVo);
 
 		// *db에 저장
-		// dao의 메소드 호출해서 저장 --> 만들어 볼것
+		
 		System.out.println("............DB저장완료");
+		// dao의 메소드 호출해서 저장 --> 만들어 볼것
+		//List<GalleryVo> galleryList = GalleryDao.gallerySelectList();
 
 		// (2)파일을 하드디스크에 저장
 		// *파일저장

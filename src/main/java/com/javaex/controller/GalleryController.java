@@ -29,7 +29,7 @@ public class GalleryController {
 	}
 	
 	//이미지 파일 불러오기.
-	@RequestMapping(value = "/gallery/upload", method = RequestMethod.POST) //value 값에 공백 있어도 오류 뜬다.. 공백오류 조심..
+	@RequestMapping(value = "/upload", method = RequestMethod.POST) //value 값에 공백 있어도 오류 뜬다.. 공백오류 조심..
 	public String upload(@RequestParam(value="file") MultipartFile file, Model model) {
 		System.out.println("GalleryController.upload()");//오류난 이유) 바인딩 시켜줄 html name 값이 공란이라서 <input id="file" type="file" name="file" value="">
   
