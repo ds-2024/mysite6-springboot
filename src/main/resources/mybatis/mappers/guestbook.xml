@@ -20,7 +20,7 @@
 	<insert id="insert" parameterType="com.javaex.vo.GuestbookVo">
 		<![CDATA[ 
 			insert into guestbook
-			value(null, #{name}, #{password}, #{content}, now())
+			values (null, #{name}, #{password}, #{content}, now())
 		]]> 
 	</insert>
 	

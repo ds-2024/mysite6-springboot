@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.dao.GalleryDao;
 import com.javaex.vo.GalleryVo;
-import com.javaex.vo.TboardVo;
+
 
 @Service
 public class GalleryService {
@@ -59,7 +59,12 @@ public class GalleryService {
 		
 		System.out.println("............DB저장완료");
 		// dao의 메소드 호출해서 저장 --> 만들어 볼것
-		//List<GalleryVo> galleryList = GalleryDao.gallerySelectList();
+		 int count = galleryDao.insertImage(galleryVo);
+	        if (count > 0) {
+	            System.out.println("DB 저장 O");
+	        } else {
+	            System.out.println("DB 저장 X");
+	        }
 
 		// (2)파일을 하드디스크에 저장
 		// *파일저장

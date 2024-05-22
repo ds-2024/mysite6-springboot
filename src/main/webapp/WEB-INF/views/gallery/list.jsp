@@ -59,7 +59,7 @@
                      <!-- 이미지반복영역 -->
                      <li>
                         <div class="view">
-                           <img class="imgItem" src="mysite6/gallery/upload/{saveName}">
+                           <img class="imgItem" src="">
                            <div class="imgWriter">
                               작성자: <strong>유재석</strong>
                            </div>
@@ -88,7 +88,7 @@
    <!-- 이미지등록 팝업(모달)창 -->
    <div id="addModal" class="modal">
       <div class="modal-content">
-         <form action="${pageContext.request.contextPath}/gallery/upload" method="post" enctype="multipart/form-data">
+         <form id="uploadForm" action="${pageContext.request.contextPath}/gallery/upload" method="post" enctype="multipart/form-data">
             <div class="closeBtn">×</div>
             <div class="m-header">간단한 타이틀</div>
             <div class="m-body">
@@ -129,6 +129,44 @@
 </body>
 
 <script type="text/javascript">
+//DOM tree 생성되었을때
+document.addEventListener("DOMContentLoaded", function(){
+	//저장버튼 클릭했을때(데이터만 받을거야)//////////////////////////////////////
+	let uploadForm = document.querySelector("#uploadForm");
+	uploadForm.addEventListener("submit", function(event){
+		event.preventDefault();
+		console.log("저장 클릭");
+		
+		//데이터 수집(폼에 있는 데이터 가져오기)
+		// FormData 객체를 사용하여 폼 데이터 수집
+        let formData = new FormData(uploadForm);
+		
+        let fileInput = document.querySelector('[name="file"]');
+        formData.set("file", fileInput.files[0]); // 파일 데이터 추가 + [0]이 첫번째 파일이기때문에
+
+		
+		//서버로 데이터 전송
+		axios({
+			method: 'post', // put, post, delete
+			url: '${pageContext.request.contextPath}/api/gallerys' ,
+			headers: {"Content-Type" : "application/json; charset=utf-8"}, //전송타입
+			//params: guestVo, //post방식 파라미터로 값이 전달 @ModelAttribute 와 조합
+			data: formData, //put, post, delete 방식 자동으로 JSON으로 변환 전달 파람이랑 데이터 둘중 하나만 사용.@RequestBody 와 매치.
+
+			responseType: 'json' //수신타입
+		}).then(function (response) {
+			console.log(response); //수신데이타
+			console.log(response.data);
+			let galleryVo = response.data;
+			
+			
+		}).catch(function (error) {
+			console.log(error);
+
+		
+		
+	});
+	}
    
 </script>
 
